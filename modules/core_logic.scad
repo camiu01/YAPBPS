@@ -18,8 +18,8 @@ REG_BW = 6;
 REG_BH = 7;
 REG_BRACKET = 8;
 ALL_PORTS_REGISTRY = [
-	[enable_front_module, front_mod_panel, front_mod_u, front_mod_v, label_sk200, "front_module", 82.0, 50.0, enable_bracket_front_module],
-	[enable_banana, banana_panel, banana_u, banana_v, label_front, "banana", 30.0, 16.0, enable_bracket_banana],
+	[enable_front_module, front_mod_panel, front_mod_u, front_mod_v, label_front_module, "front_module", 82.0, 50.0, enable_bracket_front_module],
+	[enable_banana, banana_panel, banana_u, banana_v, label_banana, "banana", 30.0, 16.0, enable_bracket_banana],
 	[enable_usbc, usbc_panel, usbc_u, usbc_v, label_usbc, "usbc", 16.0, 12.0, enable_bracket_usbc],
 	[enable_kf2edg, kf2edg_panel, kf2edg_u, kf2edg_v, label_kf2edg, "kf2edg", 22.0, 18.0, enable_bracket_kf2edg],
 	[enable_dc_jack, dc_jack_panel, dc_jack_u, dc_jack_v, label_dc_jack, "dc_jack", 14.0, 14.0, enable_bracket_dc],

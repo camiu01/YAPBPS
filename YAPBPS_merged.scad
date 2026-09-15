@@ -65,10 +65,10 @@ hook_slide = 5.0; // [2.0:0.5:15.0]
 vent_type_rear = "hex"; //[hex: Hexagonal Mesh, slots: Horizontal Slots, round: Round Perforated, diag_slots: Diagonal 45-deg Slots, chevron: Chevron V-Slots, fan_radial: Radial Fan Grille, diamond: Diamond Grid, honeycomb_grad: Gradient Honeycomb, louver: Dust Louvers,triangles: Triangle Truss Grid, swirl: Vortex Swirl Turbine, brick: Staggered Brick Slots, teardrop: Teardrop Aerodynamic Mesh, sine_wave: Undulating Sine Wave, none: Disabled]
 
 // Top horizontal landing flat panel ventilation pattern
-vent_type_top = "slots"; //[hex: Hexagonal Mesh, slots: Horizontal Slots, round: Round Perforated, diag_slots: Diagonal 45-deg Slots, chevron: Chevron V-Slots, fan_radial: Radial Fan Grille, diamond: Diamond Grid, honeycomb_grad: Gradient Honeycomb, louver: Dust Louvers,triangles: Triangle Truss Grid, swirl: Vortex Swirl Turbine, brick: Staggered Brick Slots, teardrop: Teardrop Aerodynamic Mesh, sine_wave: Undulating Sine Wave, none: Disabled]
+vent_type_top = "chevron"; //[hex: Hexagonal Mesh, slots: Horizontal Slots, round: Round Perforated, diag_slots: Diagonal 45-deg Slots, chevron: Chevron V-Slots, fan_radial: Radial Fan Grille, diamond: Diamond Grid, honeycomb_grad: Gradient Honeycomb, louver: Dust Louvers,triangles: Triangle Truss Grid, swirl: Vortex Swirl Turbine, brick: Staggered Brick Slots, teardrop: Teardrop Aerodynamic Mesh, sine_wave: Undulating Sine Wave, none: Disabled]
 
 // Right side chassis panel ventilation pattern
-vent_type_right = "diag_slots"; //[hex: Hexagonal Mesh, slots: Horizontal Slots, round: Round Perforated, diag_slots: Diagonal 45-deg Slots, chevron: Chevron V-Slots, fan_radial: Radial Fan Grille, diamond: Diamond Grid, honeycomb_grad: Gradient Honeycomb, louver: Dust Louvers,triangles: Triangle Truss Grid, swirl: Vortex Swirl Turbine, brick: Staggered Brick Slots, teardrop: Teardrop Aerodynamic Mesh, sine_wave: Undulating Sine Wave, none: Disabled]
+vent_type_right = "hex"; //[hex: Hexagonal Mesh, slots: Horizontal Slots, round: Round Perforated, diag_slots: Diagonal 45-deg Slots, chevron: Chevron V-Slots, fan_radial: Radial Fan Grille, diamond: Diamond Grid, honeycomb_grad: Gradient Honeycomb, louver: Dust Louvers,triangles: Triangle Truss Grid, swirl: Vortex Swirl Turbine, brick: Staggered Brick Slots, teardrop: Teardrop Aerodynamic Mesh, sine_wave: Undulating Sine Wave, none: Disabled]
 
 // Left removable lid panel ventilation pattern
 vent_type_left = "hex"; //[hex: Hexagonal Mesh, slots: Horizontal Slots, round: Round Perforated, diag_slots: Diagonal 45-deg Slots, chevron: Chevron V-Slots, fan_radial: Radial Fan Grille, diamond: Diamond Grid, honeycomb_grad: Gradient Honeycomb, louver: Dust Louvers,triangles: Triangle Truss Grid, swirl: Vortex Swirl Turbine, brick: Staggered Brick Slots, teardrop: Teardrop Aerodynamic Mesh, sine_wave: Undulating Sine Wave, none: Disabled]
@@ -130,6 +130,9 @@ enable_side_tabs = false;
 // Exterior rebate counterbore to sink display bezel flush with chassis face
 enable_module_flush = true;
 
+// Text above front DC-DC display module
+label_front_module = "POWER SUPPLY";
+
 // Enable internal support collar for front digital display module
 enable_bracket_front_module = false;
 
@@ -147,6 +150,9 @@ banana_u = 50.0; // [0.0:1.0:100.0]
 
 // Vertical placement percentage along target panel (%)
 banana_v = 50.0; // [0.0:1.0:100.0]
+
+// Text above banana output binding posts
+label_banana = "OUTPUT";
 
 // Enable internal support collar for banana binding posts
 enable_bracket_banana = false;
@@ -166,6 +172,9 @@ xt60_u = 75.0; // [0.0:1.0:100.0]
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 xt60_v = 25.0; // [0.0:1.0:100.0]
 
+// Text above XT60 connector
+label_xt60 = "DC IN";
+
 // Enable internal support pillar for XT60 connector
 enable_bracket_xt60 = false;
 
@@ -183,6 +192,9 @@ dc_jack_u = 55.0; // [0.0:1.0:100.0]
 
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 dc_jack_v = 25.0; // [0.0:1.0:100.0]
+
+// Text above DC barrel jack
+label_dc_jack = "AUX";
 
 // Enable internal support pillar for DC Barrel Jack socket
 enable_bracket_dc = false;
@@ -202,6 +214,9 @@ kf2edg_u = 35.0; // [0.0:1.0:100.0]
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 kf2edg_v = 25.0; // [0.0:1.0:100.0]
 
+// Text above KF2EDG screw terminal
+label_kf2edg = "IN";
+
 // Enable internal support pillar for KF2EDG screw terminal
 enable_bracket_kf2edg = false;
 
@@ -219,6 +234,9 @@ usbc_u = 15.0; // [0.0:1.0:100.0]
 
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 usbc_v = 25.0; // [0.0:1.0:100.0]
+
+// Text above USB-C PD input port
+label_usbc = "PD IN";
 
 // Enable internal rear retention bracket and support pillar for USB-C
 enable_bracket_usbc = true;
@@ -443,24 +461,6 @@ label_offset_y = 13.0; // [8.0:1.0:25.0]
 // Vertical clearance distance above front meter bezel (mm)
 label_offset_sk200 = 38.0; // [20.0:1.0:50.0]
 
-// Text above banana output binding posts
-label_front = "OUTPUT";
-
-// Text above front DC-DC display module
-label_sk200 = "POWER SUPPLY";
-
-// Text above XT60 connector
-label_xt60 = "DC IN";
-
-// Text above DC barrel jack
-label_dc_jack = "AUX";
-
-// Text above KF2EDG screw terminal
-label_kf2edg = "OUT";
-
-// Text above USB-C PD input port
-label_usbc = "PD IN";
-
 
 /* [Chassis Dimensions] */
 
@@ -568,8 +568,8 @@ REG_BW = 6;
 REG_BH = 7;
 REG_BRACKET = 8;
 ALL_PORTS_REGISTRY = [
-	[enable_front_module, front_mod_panel, front_mod_u, front_mod_v, label_sk200, "front_module", 82.0, 50.0, enable_bracket_front_module],
-	[enable_banana, banana_panel, banana_u, banana_v, label_front, "banana", 30.0, 16.0, enable_bracket_banana],
+	[enable_front_module, front_mod_panel, front_mod_u, front_mod_v, label_front_module, "front_module", 82.0, 50.0, enable_bracket_front_module],
+	[enable_banana, banana_panel, banana_u, banana_v, label_banana, "banana", 30.0, 16.0, enable_bracket_banana],
 	[enable_usbc, usbc_panel, usbc_u, usbc_v, label_usbc, "usbc", 16.0, 12.0, enable_bracket_usbc],
 	[enable_kf2edg, kf2edg_panel, kf2edg_u, kf2edg_v, label_kf2edg, "kf2edg", 22.0, 18.0, enable_bracket_kf2edg],
 	[enable_dc_jack, dc_jack_panel, dc_jack_u, dc_jack_v, label_dc_jack, "dc_jack", 14.0, 14.0, enable_bracket_dc],
