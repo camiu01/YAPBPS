@@ -1,174 +1,133 @@
-# YAPBPS (Yet Another Parametric Bench Power Supply)
+<div align="center">
 
-A fully parametric, modular 3D-printable enclosure designed in OpenSCAD for custom DC-DC bench power supply builds (SK200W, SK150C, and similar digital modules).
+# YAPBPS
+### Yet Another Parametric Bench Power Supply
 
-Featuring a classic console-style angled profile, a slide-to-lock service door, dynamic multi-pattern ventilation, and a coordinate-based matrix placement engine that allows arbitrary assignment of input/output ports to any face of the chassis.
+A modular, fully parametric 3D-printable benchtop enclosure in OpenSCAD tailored for custom DC-DC buck/boost converters (SK200W, SK150C, and equivalents).
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![OpenSCAD](https://img.shields.io/badge/OpenSCAD-2021.01+-informational.svg)](https://openscad.org/)
+[![Python](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/)
+[![Status](https://img.shields.io/badge/Status-Active-success.svg)](#)
 
-## Highlights
-
-* **Angled Console Profile:** Optimizes screen viewing angles and control access on the bench while maintaining a flat top deck.
-* **Universal Matrix Placement Engine:** Move any connector to any panel (`Front_Slope`, `Front_Lip`, `Top`, `Rear`, `Right`, `Left`) using horizontal and vertical percentage coordinates (`U`, `V`).
-* **Z-Dovetail Slide-to-Lock Door:** Completely hinge-free. The left service door slides along rear dovetail mortises and locks with a single front M3 screw. An integrated stepped collar prevents light bleed and panel flex.
-* **Active Collision Auditing:** A built-in 2D bounding-box engine audits your port coordinates and throws warnings in the console if two connectors overlap on the same face.
-* **Rear Auto-Arrange:** Automatically balances, centers, and spaces all connectors assigned to the rear panel.
-* **Per-Panel Dynamic Ventilation:** Choose independent cooling patterns (`hex`, `slots`, `diag_slots`, `chevron`, `louver`, `swirl`, `sine_wave`, `fan_radial`, etc.) for Rear, Top, Right, and Left faces.
-* **Integrated Hardware Infrastructure:** Built-in floor zip-tie bridges, an anti-sag grounded pillar for the USB-C trigger PCB, and M3 standoffs for ideal-diode protection boards.
+</div>
 
 ---
 
-## Supported Hardware & Cutouts Out-of-the-Box
+## Overview
 
-| Component | Default Panel | Description / Standards |
-| :--- | :--- | :--- |
-| **Front Display Meter** | `Front_Slope` | SK200W / SK150C DC-DC modules with flush-mount bezel counterbore |
-| **Banana Binding Posts** | `Front_Lip` | Dual isolated 4mm posts (standard 19.05 mm / 3/4" pitch) |
-| **XT60E-M** | `Rear` | Flanged DC input with dual M3 screw anchors |
-| **DC Barrel Jack** | `Rear` | Standard 5.5 x 2.5 mm threaded bulkhead jack |
-| **KF2EDG** | `Rear` | Pluggable industrial screw terminal block |
-| **USB-C PD Trigger** | `Rear` | Front-slotted port with interior retention cradle & floor support |
-| **Power Switch** | `Right` | Standard KCD1 rectangular rocker switch |
-| **XT30E-M** | `Rear` | Compact flanged panel-mount DC connector |
-| **Aviation Plug** | `Right` | Circular GX12 or GX16 threaded metal connector |
-| **Anderson Powerpole** | `Rear` | Dual 15A/30A/45A modular quick-disconnect |
-| **Push Button** | `Front_Lip` | 16mm circular metal / LED standby pushbutton |
-| **USB-A** | `Front_Lip` | Standard panel-mount USB-A port |
-| **C14 AC Inlet** | `Rear` | IEC 60320 C14 mains power socket |
-| **Cooling Fan** | `Rear` | Axial fan cutout with mounting ring (parameterized size) |
-| **Potentiometer** | `Front_Lip` | Rotary potentiometer / encoder bore |
-| **LED 5mm** | `Front_Lip` | 5mm panel LED bezel bore |
-| **Keystone RJ45** | `Rear` | Snap-in modular network pass-through |
-| **Fuse 5x20** | `Rear` | Panel-mount 5x20 mm fuse holder |
+YAPBPS bridges the gap between static bench enclosures and DIY versatility. It features an angled console profile, dynamic venting, an active clearance auditor, and a coordinate-driven placement engine to mount any connector on any panel.
+
+### Key Highlights
+
+* **Angled Console Profile:** Optimal workbench viewing angles and dial ergonomics while keeping the top surface flat.
+* **Universal Matrix Placement:** Position components on any face (`Front_Slope`, `Front_Lip`, `Top`, `Rear`, `Right`, `Left`) via percentage-based coordinates (`U`, `V`).
+* **Active Collision Auditing:** Integrated 2D bounding-box validation detects and reports overlapping ports in the OpenSCAD console.
+* **Z-Dovetail Service Door:** Hinge-free maintenance lid sliding along rear dovetails, secured by a single front M3 screw with an anti-flex stepped collar.
+* **Auto-Balance Rear Panel:** Automatically distributes and centers rear-facing connectors.
+* **Parametric Venting:** Panel-independent airflow patterns (`hex`, `slots`, `diag_slots`, `chevron`, `louver`, `swirl`, `fan_radial`, etc.).
+* **Integrated Chassis Infrastructure:** Molded floor zip-tie anchors, anti-sag support pillar for USB-C trigger boards, and M3 standoffs for ideal-diode modules.
 
 ---
 
-## Getting Started
+## Supported Hardware & Cutouts
+
+| Category | Component | Default Panel | Mount / Standards |
+| :--- | :--- | :--- | :--- |
+| **Displays** | Front Display Meter | `Front_Slope` | SK200W / SK150C (flush bezel counterbore) |
+| **Outputs** | Banana Binding Posts | `Front_Lip` | Dual isolated 4mm (19.05 mm / 3/4" standard pitch) |
+| | USB-A Output | `Front_Lip` | Bulkhead female socket |
+| **Inputs** | XT60E-M / XT30E-M | `Rear` | Flanged panel mount with dual M3 screw anchors |
+| | USB-C PD Trigger | `Rear` | Slotted port with retention cradle & floor rest |
+| | DC 5.5 x 2.5 mm | `Rear` | Standard threaded barrel jack |
+| | Pluggable Terminal | `Rear` | KF2EDG screw terminal block |
+| | AC Mains Inlet | `Rear` | IEC 60320 C14 panel socket |
+| | Anderson Powerpole | `Rear` | Dual 15A/30A/45A housing |
+| **Controls** | Rocker Switch | `Right` | KCD1 rectangular switch (snap-fit) |
+| | Push Button | `Front_Lip` | 16mm metal latching/momentary LED button |
+| | Potentiometer | `Front_Lip` | Standard rotary encoder / pot bore |
+| | Status Indicator | `Front_Lip` | 5mm panel-mount LED bezel |
+| **Utility** | Circular Aviation | `Right` | GX12 / GX16 threaded plug |
+| | Axial Fan | `Rear` | Parametric square fan bore + guard |
+| | Keystone RJ45 | `Rear` | Snap-in pass-through |
+| | Fuse Holder | `Rear` | 5x20 mm panel-mount screw cap |
+
+---
+
+## Quick Start
 
 ### Prerequisites
 
-* [OpenSCAD](https://openscad.org/) (v2021.01 or newer) - Parametric CAD modeling engine
-* [Python](https://www.python.org/) (v3.10 or newer) - Only required for single-file distribution builds (`build.py`)
+* [OpenSCAD](https://openscad.org/) (v2021.01 or later)
+* [Python](https://www.python.org/) (v3.10+, required only for compiling single-file distributions)
 
-### Setup & Customization
+### Workflow
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/camiu01/YAPBPS.git](https://github.com/camiu01/YAPBPS.git)
-   cd YAPBPS
+1. **Clone the repository:**
+{B}bash
+git clone https://github.com/camiu01/YAPBPS.git
+cd YAPBPS
+{B}
 
-```
-
-2. Open the main entry point:
-```bash
+2. **Open the project:**
+   Always open `main.scad` directly. Never launch modules from inside `modules/`.
+{B}bash
 openscad main.scad
+{B}
 
-```
+3. **Configure parameters:**
+   In OpenSCAD, open **Window** > **Customizer** to tune dimensions, active cutouts, coordinate placements, and thermal patterns.
 
-
-*(Note: Always open `main.scad`. Never open module files under `modules/` directly.)*
-3. Enable the Customizer interface:
-In OpenSCAD, open the menu and enable `Window` -> `Customizer` to adjust dimensions, ports, positions, and ventilation.
-4. (Optional) Generate the unified single-file distribution:
-```powershell
-python build.py
-
-```
-
-
-
----
-
-## Verification & Testing
-
-### Interactive Previews & Clearances
-
-* Press **F5** in OpenSCAD with `enable_assembly_view = true` to view the assembled console.
-* Use `preview_slide` and `preview_explode` sliders to inspect the dovetail fit and internal spacing.
-* Check the OpenSCAD console output. The placement engine automatically audits clearances and flags overlaps:
-```text
+4. **Verify design:**
+   * Press `F5` to update the assembly preview.
+   * Use `preview_slide` and `preview_explode` sliders to audit internal clearances and sliding tolerances.
+   * Watch the console for layout errors:
+{B}text
 ECHO: "WARNING: Port overlap detected on Rear panel between [XT60E-M] and [DC_Jack]"
+{B}
 
-```
-
-
-
-### Modular Build Integrity
-
-Run the distribution merger to verify file tree includes and include guards:
-
-```powershell
+5. **(Optional) Bundle into single file:**
+{B}bash
 python build.py
-
-```
-
----
-
-## Manufacturing & Deployment
-
-### 1. Export STLs
-
-* **Chassis:** Set `render_main_body = true` and `render_side_lid = false`. Press **F6** (Render), then **F7** to export `YAPBPS_Chassis.stl`.
-* **Side Door:** Set `render_main_body = false` and `render_side_lid = true`. Press **F6** (Render), then **F7** to export `YAPBPS_Lid.stl` (pre-oriented flat on `Z = 0`).
-
-### 2. Slicer & Print Settings
-
-* **Filament:** PETG or PETG-HF (recommended for thermal resistance near regulators and ductile snap-fits).
-* **Build Plate:** Textured PEI Plate recommended.
-* **Fuzzy Skin:** Enable **Fuzzy Skin: Contour Only** (Thickness: `0.1 mm`, Point Distance: `0.25 mm`) on the chassis for a clean matte finish without compromising internal dovetail tolerances.
-* **Supports:**
-* **Chassis:** Supports required for port cutouts and overhangs (tree/organic supports recommended).
-* **Side Door:** Prints flat on the sheet with supports disabled (None).
-
-
-* **Wall Loops:** 4 to 5 (ensures vent grids, dovetail guides, and screw bosses are solid plastic).
-* **Infill:** 20% – 25% Gyroid.
-
-### 3. Assembly Hardware
-
-* **Lid Retention:** 1x M3 x 8mm countersunk screw (threads directly into plastic or an M3 heat-set insert).
-* **Internal Standoffs (Optional):** Up to 4x M3 heat-set brass inserts (4.2 mm hole) for auxiliary boards.
-* **Cable Management:** 2.5 mm nylon zip-ties for the base plate tie-down loops.
+{B}
 
 ---
 
-## Built With
+## Manufacturing Guide
 
-* [OpenSCAD](https://openscad.org/) - The Programmers Solid 3D CAD Modeller
-* [Python](https://www.python.org/) - Scripting engine used for modular inlining and distribution bundling
+### STL Export
 
----
+1. **Chassis:** Set `render_main_body = true` and `render_side_lid = false`. Render (`F6`), then Export STL (`F7`) as `YAPBPS_Chassis.stl`.
+2. **Side Door:** Set `render_main_body = false` and `render_side_lid = true`. Render (`F6`), then Export STL (`F7`) as `YAPBPS_Lid.stl`.
 
-## Contributing
+### Recommended Slicer Settings
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for guidelines on code standards and the pull request process.
+* **Filament:** PETG, ABS, or ASA (higher heat resistance near regulators than PLA).
+* **Wall Loops / Perimeters:** `4 - 5` (keeps vent meshes, dovetails, and standoffs completely solid).
+* **Infill:** `20% – 25%` (Gyroid or Honeycomb).
+* **Supports:** 
+  * *Chassis:* Organic/Tree supports for cutouts and connector ports.
+  * *Side Lid:* None (prints flat on the bed).
+* **Surface Finish (Optional):** **Fuzzy Skin** is completely optional and based on personal preference. If you prefer a textured matte finish, use **Contour Only** (suggested: thickness `0.1 mm`, point distance `0.25 mm`) to prevent altering the internal dovetail tolerances.
 
-To add new ports or vent patterns:
+### Assembly Hardware
 
-1. Copy `modules/cutouts/ports/_TEMPLATE_port.scad` or `modules/vent/patterns/_TEMPLATE_vent.scad`.
-2. Implement your geometry centered at `[0,0,0]`.
-3. Register the new module in the respective aggregator and dispatcher files.
-4. Add the entry to `ALL_PORTS_REGISTRY` in `modules/core_logic.scad` and expose it in `main.scad`.
-5. Run `python build.py` to update the merged distribution file.
-
----
-
-## Versioning
-
-We use [Semantic Versioning](https://semver.org/). For available releases, see the [tags on this repository](https://github.com/camiu01/YAPBPS/tags).
+* **Lid Retention:** 1x M3x8mm countersunk screw.
+* **Internal Standoffs:** 4x M3 heat-set brass threaded inserts (OD: 4.2–4.6 mm).
+* **Cable Management:** 2.5 mm nylon cable ties.
 
 ---
 
-## Authors
+## Extending Ports & Vents
 
-* **Camiu** - *Initial work & design* - [camiu01](https://github.com/camiu01)
+1. Duplicate `modules/cutouts/ports/_TEMPLATE_port.scad` or `modules/vent/patterns/_TEMPLATE_vent.scad`.
+2. Center your cutout profile at `[0, 0, 0]`.
+3. Register the new shape in the respective aggregator under `modules/`.
+4. Append the descriptor entry to `ALL_PORTS_REGISTRY` in `modules/core_logic.scad` and expose its UI flags in `main.scad`.
+5. Run `python build.py` to regenerate single-file dist assets.
 
 ---
 
-## License
+## License & Authors
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-
-```
+Maintained by **Camiu** ([@camiu01](https://github.com/camiu01)). Distributed under the [MIT License](LICENSE).
