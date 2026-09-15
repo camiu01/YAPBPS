@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OpenSCAD temp / cache
+*.echo
+*.deps
+
+# OS files
+.DS_Store
+Thumbs.db

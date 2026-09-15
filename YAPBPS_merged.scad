@@ -14,7 +14,7 @@ print_tolerance = 0.4; // [0.1:0.05:1.2]
 render_main_body = true;
 
 // Generate the removable side service lid (pre-oriented flat on Z=0 for slicing)
-render_side_lid = false;
+render_side_lid = true;
 
 // Mesh circle and arc facet resolution count
 $fn = 60; // [20:10:120]
