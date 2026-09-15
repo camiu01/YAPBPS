@@ -2,7 +2,7 @@
 
 A fully parametric, modular 3D-printable enclosure designed in OpenSCAD for custom DC-DC bench power supply builds (SK200W, SK150C, and similar digital modules).
 
-Featuring a classic angled console profile, print-in-place service door, dynamic multi-pattern ventilation, and a coordinate-based matrix placement engine that allows arbitrary assignment of input/output ports to any face of the chassis.
+Featuring a classic angled console profile, a 100% support-free slide-to-lock service door, dynamic multi-pattern ventilation, and a coordinate-based matrix placement engine that allows arbitrary assignment of input/output ports to any face of the chassis.
 
 ---
 
@@ -10,11 +10,12 @@ Featuring a classic angled console profile, print-in-place service door, dynamic
 
 * **Console Form Factor:** Angled front face for optimal viewing and control access on the workbench, combined with a flat top landing.
 * **Universal Matrix Placement Engine:** Move any connector to any panel (`Front_Slope`, `Front_Lip`, `Top`, `Rear`, `Right`, `Left`) using horizontal and vertical percentage coordinates (`U`, `V`).
-* **Hinged Service Door with Interlocking Lip:** Tool-less access to internal wiring via an integrated rear hinge, featuring a perimeter stepped collar to prevent light bleed, panel flex, and seam gaps.
-* **Per-Panel Dynamic Ventilation:** Choose independent cooling patterns (`hex`, `slots`, `round`, `diag_slots`, or `none`) for Rear, Top, Right, and Left faces, with automatic clipping against the front angled slope.
-* **Rear Auto-Arrange Engine:** Automatically balances, spaces, and centers connectors assigned to the rear panel.
-* **Reinforced PCB & Hardware Mounts:** Integrated USB-C trigger cradle with anti-sag pillar grounded to the floor, chassis zip-tie anchor bridges, and floor standoffs for protection diodes or secondary boards.
-* **Native Customizer UI:** Fully annotated OpenSCAD code with labeled sliders, dropdowns, and clear parameter groups.
+* **Z-Dovetail Slide-to-Lock Door:** Completely hinge-less and 100% support-free. The left service door slides into rear wall mortises via dovetail joints and locks securely with a single front M3 screw. An integrated stepped collar prevents light bleed and panel flex.
+* **Live Assembly Simulation & Smart Export:** Uses OpenSCAD's `$preview` environment. Press **F5** to see the fully assembled case with interactive sliders to open/slide the door. Press **F6** and the script automatically lays the selected parts flat on the virtual build plate for STL export.
+* **Active Collision Detection:** A built-in 2D bounding-box engine audits your port coordinates and throws console warnings if two connectors overlap on the same panel.
+* **Per-Panel Dynamic Ventilation:** Choose independent cooling patterns (`hex`, `slots`, `round`, `diag_slots`, or `none`) for Rear, Top, Right, and Left faces.
+* **Rear Auto-Arrange Engine:** Automatically balances, spaces, and centers all connectors assigned to the rear panel.
+* **Reinforced Internal Hardware:** Integrated USB-C trigger cradle with a grounded anti-sag pillar, chassis floor zip-tie anchor bridges, and standoffs for ideal-diode protection boards.
 
 ---
 
@@ -38,29 +39,29 @@ Featuring a classic angled console profile, print-in-place service door, dynamic
 
 ## Print Settings (PETG Recommended)
 
-* **Material:** PETG (recommended for thermal stability around regulators and ductile snap-fits)
-* **Orientation:**
-  * **Chassis Body:** Print upright resting on its flat base (`Z = 0`). No supports required for front slope or flat top with tuned bridging.
-  * **Side Door:** Pre-oriented flat on the build plate (`render_side_lid = true`). Use a textured PEI plate for a clean external finish.
-* **Perimeters / Wall Lines:** 4 to 5 (ensures vent grids, hinge loops, and screw bosses are 100% solid plastic).
-* **Infill:** 20% – 25% (Gyroid or Grid).
-* **Cooling:** 30%–50% fan speed for layer bonding; 100% override on bridges.
-* **Assembly Hardware:**
-  * Hinge pin: 1.75 mm PETG filament piece flanged with a warm iron tip, or an M2 x 30 mm bolt.
-  * Lid retention screw: 1x M3 countersunk screw (direct into plastic or M3 heat-set brass insert).
-  * Auxiliary board mount: 4x M3 heat-set inserts (`4.2 mm` cavity).
+* **Material:** PETG or PETG-HF (highly recommended for thermal stability around high-power regulators and ductile snap-fits). PLA+ can be used for prototyping.
+* **Build Plate:** Textured PEI plate recommended for a uniform external finish on the side door.
+* **Orientation & Supports:** 
+  * **100% Support-Free:** Both the chassis and the door require NO supports. Bridging settings must be tuned for the top flat landing and hexagonal vents.
+* **Perimeters / Wall Lines:** 4 to 5 loops (ensures vent grids, dovetail hooks, and screw bosses are 100% solid plastic).
+* **Infill:** 20% – 25% (Gyroid).
+* **Assembly Hardware Required:**
+  * **Lid retention:** 1x M3 x 8mm countersunk screw (threads directly into plastic or into an M3 heat-set brass insert).
+  * **Auxiliary boards (Optional):** 4x M3 heat-set inserts (`4.2 mm` cavity) for internal standoffs.
+  * **Cable management:** Standard 2.5mm nylon zip-ties.
 
 ---
 
 ## How to Export STLs
 
 1. Open `YAPBPS.scad` in [OpenSCAD](https://openscad.org/) (v2021.01 or newer).
-2. Open the **Customizer** panel (`Window` -> `Customizer`).
-3. Adjust physical dimensions, port positions, and ventilation types to fit your build.
-4. **Export Chassis:**
+2. Open the **Customizer** panel (`Window` -> `Customizer`) to adjust dimensions, ports, and ventilation.
+3. Toggle `enable_assembly_view` and press **F5** (Preview) to visualize the closed case and check for collision warnings in the console.
+4. **Export the Chassis:**
    * Set `render_main_body = true` and `render_side_lid = false`.
-   * Press **F6** (Render), then **F7** to export `YAPBPS_Chassis.stl`.
-5. **Export Door:**
+   * Press **F6** (Render). The script will automatically lay the part flat for printing.
+   * Press **F7** to export `YAPBPS_Chassis.stl`.
+5. **Export the Door:**
    * Set `render_main_body = false` and `render_side_lid = true`.
    * Press **F6** (Render), then **F7** to export `YAPBPS_Lid.stl`.
 
@@ -68,13 +69,13 @@ Featuring a classic angled console profile, print-in-place service door, dynamic
 
 ## Contributing Custom Connectors
 
-The project uses a unified dispatcher architecture so anyone can add new connectors without modifying the core geometry or matrix transformations:
+The project uses a unified dispatch matrix (`ALL_PORTS_REGISTRY`), making it incredibly easy to add new connectors without messing with 3D matrix math:
 
-1. **Declare Customizer Parameters:** Add `enable_<name>`, `<name>_panel`, `<name>_u`, and `<name>_v` in the configuration block.
-2. **Define Dimensions:** Specify nominal dimensions + `print_tolerance` in the `/* [Hidden] */` block.
-3. **Build the Cutting Tool:** Create `cutout_<name>()` inside the `PANEL CUTTING TOOLS` section, centered at `[0, 0, 0]` and cutting through the Z-axis.
-4. **Register in Dispatchers:** Add entries inside `render_port_cutout()` and `render_port_label()`.
-5. **Add to Loops:** Include the module check in `apply_configured_ports()` and `apply_configured_labels()`.
+1. **Add Customizer Parameters:** Define the toggle, target panel, position percentages (`U`/`V`), and label text at the top of the file.
+2. **Create a Cutout Module:** In the `VENTILATION & CUTTING TOOLS` section, create your `cutout_myport()` 3D tool (centered at `[0,0,0]`, cutting through Z).
+3. **Register in the Dispatcher:** Add your type branch to the `render_port_cutout(type)` module.
+4. **(Optional) Add Internal Bracket:** Define a support pillar in `render_port_bracket(type, z_h)`.
+5. **Update `ALL_PORTS_REGISTRY`:** Add a new row to the main matrix defining its bounding box size (used for auto-arrange and collision detection).
 
 ---
 

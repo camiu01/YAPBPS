@@ -31,6 +31,17 @@ color_lid = "#FF8C00";
 // Internal hardware accessories (tabs, standoffs, PCB rails) preview color (F5)
 color_mnt = "#FF8C00";
 
+/* [Assembly Preview] */
+
+// Show assembled lid in preview (F5). Disables automatically in export mode (F6)!
+enable_assembly_view = true;
+
+// Slide the lid backward to test the locking hooks (mm)
+preview_slide = 0.0; // [0.0:0.1:15.0]
+
+// Explode the lid laterally to look inside the chassis (mm)
+preview_explode = 0.0; // [0.0:1.0:50.0]
+
 
 /* [Rear Retention Hook System] */
 
@@ -42,6 +53,9 @@ hook_t = 1.8; // [1.2:0.1:3.0]
 
 // Depth of internal engagement behind the rear chassis wall (mm)
 hook_reach = 3.5; // [2.0:0.5:6.0]
+
+// Slide-to-lock travel distance (mm). Set > 3.0 to have the tabs protrude from the rear as a visual lock indicator.
+hook_slide = 5.0; // [2.0:0.5:15.0]
 
 
 /* [Ventilation Grids & Margins] */
@@ -589,21 +603,25 @@ module validate_configuration() {
 }
 validate_configuration();
 
-
 // ==============================================================================
 // TOP-LEVEL RENDER STAGE
 // ==============================================================================
-if (render_main_body) { 
-    base_case(); 
+if ($preview && enable_assembly_view) {
+    // PREVIEW MODE (F5): Assembly simulation
+    if (render_main_body) base_case();
+    if (render_side_lid) {
+        translate([-preview_explode, preview_slide, 0]) 
+            color(color_lid, 0.75) lid_assembly();
+    }
+} else {
+    // STL EXPORT MODE (F6): Flat print layout
+    if (render_main_body) base_case();
+    if (render_side_lid) {
+        translate([-15, 0, 0]) 
+            rotate([0, -90, 0]) 
+            color(color_lid) lid_assembly();
+    }
 }
-
-if (render_side_lid) {
-    // Oriented completely flat on Z=0 with exterior surface contacting build plate
-    translate([-15, 0, 0]) 
-        rotate([0, -90, 0]) 
-        color(color_lid) lid_assembly();
-}
-
 
 // ==============================================================================
 // 3D TRANSFORMATION & PLACEMENT ENGINE
@@ -801,18 +819,28 @@ module base_case() {
                         offset(delta = -margin_diagonal) profile_2d();
                 }
 
-                // Rear retention hook receiver slots (recessed into internal rear wall)
+                // Rear wall locking Z-Dovetail mortises (Internal track + Lock)
                 for (z_pos = [case_height * 0.25, case_height * 0.75]) {
-                    // Clearance sliding pocket and locking engagement seat
+                    // 1. Z-Dovetail mortise carved into the rear wall thickness
+                    translate([wall_thickness, case_depth - wall_thickness / 2, z_pos]) {
+                        hull() {
+                            translate([0, 0, 0])
+                                cube([0.1, wall_thickness + 2, hook_w + print_tolerance * 2], center = true);
+                            translate([hook_reach + print_tolerance, 0, 0])
+                                cube([0.1, wall_thickness + 2, hook_w + 2 * hook_reach + print_tolerance * 4], center = true);
+                        }
+                    }
+                    
+                    // 2. Internal insertion track (allows inserting the lid before sliding it back)
                     translate([
-                        wall_thickness + (hook_t + hook_reach / 2) / 2, 
-                        case_depth - wall_thickness - hook_reach / 2, 
+                        wall_thickness + hook_reach / 2 + print_tolerance, 
+                        case_depth - wall_thickness - hook_slide / 2, 
                         z_pos
                     ])
                         cube([
-                            hook_t + hook_reach / 2 + print_tolerance * 2, 
                             hook_reach + print_tolerance * 2, 
-                            hook_w + print_tolerance * 2
+                            hook_slide + 0.5, 
+                            hook_w + 2 * hook_reach + print_tolerance * 4
                         ], center = true);
                 }
             }
@@ -828,7 +856,7 @@ module base_case() {
             color(color_mnt) {
                 ziptie_bridge(case_width * 0.50, case_depth - 25, rot = 0);
                 ziptie_bridge(case_width - 16, case_depth * 0.45, rot = 90);
-                ziptie_bridge(case_width * 0.50, 18, rot = 0);
+                ziptie_bridge(case_width * 0.50 + 25, 18, rot = 0);
             }
         }
 
@@ -895,20 +923,18 @@ module lid_assembly() {
             screw_hole_lid();
         }
         
-        // 3. Rear L-Hook Tabs: completely recessed inside the chassis cavity
+       // 3. Rear Z-Dovetail Tabs: 100% Support-Free (Perfectly flush with the rear)
         for (z_pos = [case_height * 0.25, case_height * 0.75]) {
-            translate([
-                wall_thickness, 
-                case_depth - wall_thickness - hook_reach, 
-                z_pos
-            ]) {
-                // 1. Longitudinal shank extending toward the rear (+Y)
-                translate([hook_t / 2, hook_reach / 2, 0])
-                    cube([hook_t, hook_reach, hook_w], center = true);
-
-                // 2. L-latch hook tab turning inward toward the chassis core (+X)
-                translate([hook_t + hook_reach / 4, hook_reach - hook_t / 2, 0])
-                    cube([hook_reach / 2, hook_t, hook_w], center = true);
+            translate([wall_thickness, case_depth - wall_thickness, z_pos]) {
+                hull() {
+                    // Hook base: exactly as long as the wall thickness
+                    translate([0.1, wall_thickness / 2, 0])
+                        cube([0.2, wall_thickness, hook_w], center = true);
+                    
+                    // Hook tip (dovetail): never exceeds the rear limit
+                    translate([hook_reach, wall_thickness / 2, 0])
+                        cube([0.2, wall_thickness - 0.5, hook_w + 2 * hook_reach], center = true);
+                }
             }
         }
         
