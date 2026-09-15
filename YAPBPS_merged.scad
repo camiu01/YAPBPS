@@ -107,63 +107,6 @@ rear_port_spacing = 5.0; // [3.0:0.5:20.0]
 rear_port_v_pct = 25.0; // [10.0:1.0:90.0]
 
 
-/* [Universal Internal Brackets] */
-
-// Enable internal rear retention bracket and support pillar for USB-C
-enable_bracket_usbc = true;
-
-// Enable internal support pillar for XT60 connector
-enable_bracket_xt60 = true;
-
-// Enable internal support pillar for DC Barrel Jack socket
-enable_bracket_dc = true;
-
-// Enable internal support pillar for KF2EDG screw terminal
-enable_bracket_kf2edg = true;
-
-// Enable internal support pillar for XT30 connector
-enable_bracket_xt30 = false;
-
-// Enable internal support pillar for Powerpole paired connector
-enable_bracket_pp = false;
-
-// Enable internal support collar for front digital display module
-enable_bracket_front_module = true;
-
-// Enable internal support collar for banana binding posts
-enable_bracket_banana = true;
-
-// Enable internal support collar for rocker master switch
-enable_bracket_switch = true;
-
-// Enable internal support collar for GX aviation connector
-enable_bracket_gx = false;
-
-// Enable internal support collar for round push button
-enable_bracket_round_sw = false;
-
-// Enable internal support collar for USB-A panel port
-enable_bracket_usba = false;
-
-// Enable internal support collar for C14 socket
-enable_bracket_c14 = false;
-
-// Enable internal support collar for 40/60mm fan
-enable_bracket_fan = false;
-
-// Enable internal support collar for rotary pot/encoder
-enable_bracket_pot = false;
-
-// Enable internal support collar for 5mm LED
-enable_bracket_led5mm = false;
-
-// Enable internal support collar for RJ45 keystone
-enable_bracket_rj45 = false;
-
-// Enable internal support collar for 5x20mm fuse holder
-enable_bracket_fuse5x20 = false;
-
-
 /* [Port: Front Meter Module (SK200W/SK150C)] */
 
 // Cutout for front panel DC-DC digital display meter
@@ -187,6 +130,9 @@ enable_side_tabs = false;
 // Exterior rebate counterbore to sink display bezel flush with chassis face
 enable_module_flush = true;
 
+// Enable internal support collar for front digital display module
+enable_bracket_front_module = false;
+
 
 /* [Port: Output Banana Jacks] */
 
@@ -201,6 +147,9 @@ banana_u = 50.0; // [0.0:1.0:100.0]
 
 // Vertical placement percentage along target panel (%)
 banana_v = 50.0; // [0.0:1.0:100.0]
+
+// Enable internal support collar for banana binding posts
+enable_bracket_banana = false;
 
 
 /* [Port: Input XT60 Connector] */
@@ -217,6 +166,9 @@ xt60_u = 75.0; // [0.0:1.0:100.0]
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 xt60_v = 25.0; // [0.0:1.0:100.0]
 
+// Enable internal support pillar for XT60 connector
+enable_bracket_xt60 = false;
+
 
 /* [Port: Input DC Barrel Jack] */
 
@@ -231,6 +183,9 @@ dc_jack_u = 55.0; // [0.0:1.0:100.0]
 
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 dc_jack_v = 25.0; // [0.0:1.0:100.0]
+
+// Enable internal support pillar for DC Barrel Jack socket
+enable_bracket_dc = false;
 
 
 /* [Port: KF2EDG Screw Terminal] */
@@ -247,6 +202,9 @@ kf2edg_u = 35.0; // [0.0:1.0:100.0]
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 kf2edg_v = 25.0; // [0.0:1.0:100.0]
 
+// Enable internal support pillar for KF2EDG screw terminal
+enable_bracket_kf2edg = false;
+
 
 /* [Port: USB-C PD Input Port] */
 
@@ -261,6 +219,9 @@ usbc_u = 15.0; // [0.0:1.0:100.0]
 
 // Vertical elevation % (manual override, ignored when auto-arrange is enabled)
 usbc_v = 25.0; // [0.0:1.0:100.0]
+
+// Enable internal rear retention bracket and support pillar for USB-C
+enable_bracket_usbc = true;
 
 
 /* [Port: Master Power Switch] */
@@ -280,6 +241,9 @@ switch_v = 25.0; // [0.0:1.0:100.0]
 // Text above master power switch
 label_switch = "PWR";
 
+// Enable internal support collar for rocker master switch
+enable_bracket_switch = false;
+
 
 /* [Port: XT30 Connector] */
 
@@ -297,6 +261,9 @@ xt30_v = 25.0; // [0.0:1.0:100.0]
 
 // Text above XT30 connector
 label_xt30 = "XT30";
+
+// Enable internal support pillar for XT30 connector
+enable_bracket_xt30 = false;
 
 
 /* [Port: Aviation Connector (GX Series)] */
@@ -319,6 +286,9 @@ gx_v = 25.0; // [0.0:1.0:100.0]
 // Text above Aviation connector
 label_gx = "AVIATION";
 
+// Enable internal support collar for GX aviation connector
+enable_bracket_gx = false;
+
 
 /* [Port: Anderson Powerpole] */
 
@@ -336,6 +306,9 @@ powerpole_v = 25.0; // [0.0:1.0:100.0]
 
 // Text above Powerpole connector
 label_powerpole = "PP45";
+
+// Enable internal support pillar for Powerpole paired connector
+enable_bracket_pp = false;
 
 
 /* [Port: Round Push Button / Switch] */
@@ -355,6 +328,9 @@ round_sw_v = 50.0; // [0.0:1.0:100.0]
 // Text above push button
 label_round_sw = "STBY";
 
+// Enable internal support collar for round push button
+enable_bracket_round_sw = false;
+
 
 /* [Port: USB-A Female Panel Port] */
 
@@ -364,6 +340,9 @@ usba_u = 30.0; // [0.0:1.0:100.0]
 usba_v = 50.0; // [0.0:1.0:100.0]
 label_usba = "5V OUT";
 
+// Enable internal support collar for USB-A panel port
+enable_bracket_usba = false;
+
 
 /* [Port: AC IEC C14 Socket with M3 Flange] */
 
@@ -372,6 +351,9 @@ c14_panel = "Rear"; // [Rear: Rear Wall, Right: Right Wall, Left: Left Lid, None
 c14_u = 85.0; // [0.0:1.0:100.0]
 c14_v = 40.0; // [0.0:1.0:100.0]
 label_c14 = "AC IN";
+
+// Enable internal support collar for C14 socket
+enable_bracket_c14 = false;
 
 
 /* [Port: 40/60mm Axial Fan Cutout + M3/M4 Mount Holes] */
@@ -383,6 +365,9 @@ fan_u = 20.0; // [0.0:1.0:100.0]
 fan_v = 60.0; // [0.0:1.0:100.0]
 label_fan = "FAN";
 
+// Enable internal support collar for 40/60mm fan
+enable_bracket_fan = false;
+
 
 /* [Port: 6mm Rotary Potentiometer / Encoder with Anti-Rotation Lug] */
 
@@ -391,6 +376,9 @@ pot_panel = "Front_Lip"; // [Front_Lip: Lower Front Lip, Front_Slope: Sloped Fro
 pot_u = 70.0; // [0.0:1.0:100.0]
 pot_v = 50.0; // [0.0:1.0:100.0]
 label_pot = "ADJ";
+
+// Enable internal support collar for rotary pot/encoder
+enable_bracket_pot = false;
 
 
 /* [Port: 5mm LED Indicator Bezel / Clip] */
@@ -401,6 +389,9 @@ led5mm_u = 85.0; // [0.0:1.0:100.0]
 led5mm_v = 50.0; // [0.0:1.0:100.0]
 label_led5mm = "ON";
 
+// Enable internal support collar for 5mm LED
+enable_bracket_led5mm = false;
+
 
 /* [Port: RJ45 / Ethernet Keystone Jack Snap-In] */
 
@@ -410,6 +401,9 @@ rj45_u = 40.0; // [0.0:1.0:100.0]
 rj45_v = 30.0; // [0.0:1.0:100.0]
 label_rj45 = "LAN";
 
+// Enable internal support collar for RJ45 keystone
+enable_bracket_rj45 = false;
+
 
 /* [Port: 5x20mm Panel-Mount Screw Fuse Holder] */
 
@@ -418,6 +412,9 @@ fuse5x20_panel = "Rear"; // [Rear: Rear Wall, Right: Right Wall, Left: Left Lid,
 fuse5x20_u = 15.0; // [0.0:1.0:100.0]
 fuse5x20_v = 75.0; // [0.0:1.0:100.0]
 label_fuse5x20 = "FUSE";
+
+// Enable internal support collar for 5x20mm fuse holder
+enable_bracket_fuse5x20 = false;
 
 
 /* [Internal Accessories] */
