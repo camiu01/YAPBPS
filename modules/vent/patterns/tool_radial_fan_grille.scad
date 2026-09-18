@@ -2,6 +2,9 @@
 // YAPBPS - Radial Fan Grille Tool
 // @file modules/vent/patterns/tool_radial_fan_grille.scad
 // Concentric rings with radial spokes. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module tool_radial_fan_grille(w, h, rings = 3, spokes = 4, rib_t = 1.6, center_hub_d = 12) {

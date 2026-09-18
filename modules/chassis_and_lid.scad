@@ -3,6 +3,9 @@
 // @file modules/chassis_and_lid.scad
 // Shell extrusion, base case, lid assembly, port brackets, hardware anchors.
 // Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // ==============================================================================
 
 // ==============================================================================

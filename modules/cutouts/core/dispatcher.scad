@@ -3,6 +3,9 @@
 // @file modules/cutouts/core/dispatcher.scad
 // String-keyed dispatcher over all per-port cutout modules.
 // Requires globals: gx_type, fan_size. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module render_port_cutout(type) {

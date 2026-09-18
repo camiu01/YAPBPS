@@ -2,6 +2,9 @@
 // YAPBPS - Swirl Grille Vent Tool
 // @file modules/vent/patterns/tool_swirl_grille.scad
 // Vortex swirl turbine grille. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module tool_swirl_grille(w, h, blades = 12, outer_d_pct = 0.95, twist_deg = 35, slot_t = 2.4) {

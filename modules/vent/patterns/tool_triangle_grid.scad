@@ -2,6 +2,9 @@
 // YAPBPS - Triangle Grid Vent Tool
 // @file modules/vent/patterns/tool_triangle_grid.scad
 // Triangle truss grid, alternating orientation. Bodies use TABS.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module tool_triangle_grid(w, h, side = 8.0, rib = 1.8) {

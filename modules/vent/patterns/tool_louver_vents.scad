@@ -2,6 +2,9 @@
 // YAPBPS - Louver Vents Tool
 // @file modules/vent/patterns/tool_louver_vents.scad
 // Tilted dust louver slats. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module tool_louver_vents(w, h, slot_w = 4.0, spacing = 3.0, louver_angle = 35) {

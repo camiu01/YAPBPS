@@ -5,7 +5,7 @@
 
 A modular, fully parametric 3D-printable benchtop enclosure in OpenSCAD tailored for custom DC-DC buck/boost converters (SK200W, SK150C, and equivalents).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](LICENSE)
 [![OpenSCAD](https://img.shields.io/badge/OpenSCAD-2021.01+-informational.svg)](https://openscad.org/)
 [![Python](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/Status-Active-success.svg)](#)
@@ -130,4 +130,4 @@ python build.py
 
 ## License & Authors
 
-Maintained by **Camiu** ([@camiu01](https://github.com/camiu01)). Distributed under the [MIT License](LICENSE).
+Maintained by **Camiu** ([@camiu01](https://github.com/camiu01)). Distributed under the [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](LICENSE).

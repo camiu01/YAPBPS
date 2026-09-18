@@ -6,6 +6,9 @@
 // module_body_w/h, module_tab_w/h, module_corner_rad, module_rim_w/h,
 // module_rim_rad, module_recess_depth. Depends on rounded_rect_2d.
 // Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module front_module_2d() {

@@ -6,6 +6,9 @@
 // in modules/cutouts/cutouts.scad, then add one else-if branch in
 // modules/cutouts/core/dispatcher.scad mapping your REG_TYPE string.
 // Keep 35mm extrusion depth convention. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 // Copy pattern: replace cutout_template with cutout_<your_name>.

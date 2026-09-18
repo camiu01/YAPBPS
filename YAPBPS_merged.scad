@@ -1,3 +1,10 @@
+// =============================================================================
+// YAPBPS (Yet Another Parametric Bench Power Supply)
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Licensed under Creative Commons Attribution-ShareAlike 4.0 International.
+// See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/ for details.
+// =============================================================================
 // ==============================================================================
 // YAPBPS (Yet Another Parametric Bench Power Supply) - Modular Entry Point
 // @file main.scad

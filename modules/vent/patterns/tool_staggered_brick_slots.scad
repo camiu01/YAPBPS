@@ -2,6 +2,9 @@
 // YAPBPS - Staggered Brick Slots Vent Tool
 // @file modules/vent/patterns/tool_staggered_brick_slots.scad
 // Staggered brick slot courses. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module tool_staggered_brick_slots(w, h, slot_w = 12.0, slot_h = 3.2, spacing = 2.4) {

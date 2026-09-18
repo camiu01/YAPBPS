@@ -3,6 +3,9 @@
 // @file modules/cutouts/ports/cutout_xt30.scad
 // XT30E-M body plus dual flange holes. Requires globals: xt30_w, xt30_h,
 // xt30_pitch. Depends on tool_through. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module cutout_xt30() {

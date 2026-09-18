@@ -6,6 +6,9 @@
 // pattern repeats, add one include line in modules/vent/ventilation.scad,
 // then add one else-if branch in modules/vent/core/vent_panel.scad mapping
 // your vent_type string. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 // Copy pattern: replace tool_template with tool_<your_name>.

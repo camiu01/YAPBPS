@@ -3,6 +3,9 @@
 // @file modules/cutouts/base/helpers.scad
 // Shared 2D and through-cut primitives plus text engraving tool.
 // Requires globals: label_depth, label_size. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module rounded_rect_2d(w, h, r) {

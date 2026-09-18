@@ -5,6 +5,9 @@
 // pattern modules. Requires globals: vent_type_rear/top/right/left,
 // margin_top/bottom/left/right, vent_size, vent_spacing. Depends on
 // place_port() defined in main.scad. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module vent_panel(panel, p_w, p_h) {

@@ -2,6 +2,9 @@
 // YAPBPS - Hex Grid Vent Tool
 // @file modules/vent/patterns/tool_hex_grid.scad
 // Staggered hexagonal mesh field. Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module tool_hex_grid(w, h, hole_d = 6, spacing = 2) {

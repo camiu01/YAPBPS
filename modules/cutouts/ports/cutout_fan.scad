@@ -2,6 +2,9 @@
 // YAPBPS - Axial Fan Cutout
 // @file modules/cutouts/ports/cutout_fan.scad
 // Axial fan bore with 4x corner mount screw holes. Bodies use TABS.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module cutout_fan(size = 40) {

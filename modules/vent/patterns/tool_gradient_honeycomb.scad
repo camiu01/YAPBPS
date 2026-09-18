@@ -3,6 +3,9 @@
 // @file modules/vent/patterns/tool_gradient_honeycomb.scad
 // Honeycomb cells shrinking toward panel edges. Depends on clamp_val.
 // Bodies use TABS for indentation.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 module tool_gradient_honeycomb(w, h, min_d = 3.5, max_d = 7.5, wall = 1.8) {

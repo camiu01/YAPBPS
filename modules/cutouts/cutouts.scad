@@ -3,6 +3,9 @@
 // @file modules/cutouts/cutouts.scad
 // Granular split aggregator only. No geometry here. Includes base helpers,
 // one file per port, then the string-keyed dispatcher. Bodies use TABS.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) 2026 Camiu (https://github.com/camiu01)
+// Licensed under CC BY-SA 4.0. See LICENSE or https://creativecommons.org/licenses/by-sa/4.0/
 // =============================================================================
 
 include <base/helpers.scad>
