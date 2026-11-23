@@ -10,3 +10,7 @@ __pycache__/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Windows folder customisation (FolderMania)
+desktop.ini
+.foldermania*

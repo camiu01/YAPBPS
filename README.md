@@ -3,18 +3,21 @@
 # YAPBPS
 ### Yet Another Parametric Bench Power Supply
 
-A modular, fully parametric 3D-printable benchtop enclosure in OpenSCAD tailored for custom DC-DC buck/boost converters (SK200W, SK150C, and equivalents).
+[![License CC BY-SA 4.0](https://img.shields.io/badge/License_CC_BY--SA_4.0-blue)](LICENSE)
+![OpenSCAD](https://img.shields.io/badge/OpenSCAD-A67C00?logo=openscad&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](LICENSE)
-[![OpenSCAD](https://img.shields.io/badge/OpenSCAD-2021.01+-informational.svg)](https://openscad.org/)
-[![Python](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/)
-[![Status](https://img.shields.io/badge/Status-Active-success.svg)](#)
+<img src="docs/images/photo.jpg" alt="Printed YAPBPS enclosure with a DC-DC module and banana jacks fitted" height="360" />
+<img src="docs/images/render.png" alt="OpenSCAD render of the default YAPBPS enclosure" height="360" />
+
+[What it does](#what-it-does) · [Getting started](#getting-started) · [Usage](#usage) · [Configuration](#configuration) · [License](#license)
 
 </div>
 
----
+A modular, fully parametric 3D-printable benchtop enclosure in OpenSCAD tailored for custom DC-DC buck/boost converters (SK200W, SK150C, and equivalents).
 
-## Overview
+<a id="overview"></a>
+## What it does
 
 YAPBPS bridges the gap between static bench enclosures and DIY versatility. It features an angled console profile, dynamic venting, an active clearance auditor, and a coordinate-driven placement engine to mount any connector on any panel.
 
@@ -28,9 +31,7 @@ YAPBPS bridges the gap between static bench enclosures and DIY versatility. It f
 * **Parametric Venting:** Panel-independent airflow patterns (`hex`, `slots`, `diag_slots`, `chevron`, `louver`, `swirl`, `fan_radial`, etc.).
 * **Integrated Chassis Infrastructure:** Molded floor zip-tie anchors, anti-sag support pillar for USB-C trigger boards, and M3 standoffs for ideal-diode modules.
 
----
-
-## Supported Hardware & Cutouts
+### Supported Hardware & Cutouts
 
 | Category | Component | Default Panel | Mount / Standards |
 | :--- | :--- | :--- | :--- |
@@ -52,9 +53,8 @@ YAPBPS bridges the gap between static bench enclosures and DIY versatility. It f
 | | Keystone RJ45 | `Rear` | Snap-in pass-through |
 | | Fuse Holder | `Rear` | 5x20 mm panel-mount screw cap |
 
----
-
-## Quick Start
+<a id="quick-start"></a>
+## Getting started
 
 ### Prerequisites
 
@@ -91,9 +91,8 @@ ECHO: "WARNING: Port overlap detected on Rear panel between [XT60E-M] and [DC_Ja
 python build.py
 {B}
 
----
-
-## Manufacturing Guide
+<a id="manufacturing-guide"></a>
+## Usage
 
 ### STL Export
 
@@ -116,9 +115,8 @@ python build.py
 * **Internal Standoffs:** 4x M3 heat-set brass threaded inserts (OD: 4.2–4.6 mm).
 * **Cable Management:** 2.5 mm nylon cable ties.
 
----
-
-## Extending Ports & Vents
+<a id="extending-ports--vents"></a>
+## Configuration
 
 1. Duplicate `modules/cutouts/ports/_TEMPLATE_port.scad` or `modules/vent/patterns/_TEMPLATE_vent.scad`.
 2. Center your cutout profile at `[0, 0, 0]`.
@@ -126,8 +124,7 @@ python build.py
 4. Append the descriptor entry to `ALL_PORTS_REGISTRY` in `modules/core_logic.scad` and expose its UI flags in `main.scad`.
 5. Run `python build.py` to regenerate single-file dist assets.
 
----
-
-## License & Authors
+<a id="license--authors"></a>
+## License
 
 Maintained by **Camiu** ([@camiu01](https://github.com/camiu01)). Distributed under the [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](LICENSE).
